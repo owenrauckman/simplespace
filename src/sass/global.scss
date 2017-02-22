@@ -1,0 +1,84 @@
+body{
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+}
+.g{
+  &__container{
+    position: relative;
+    width: calc(100% - 4rem);
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  &__flex{
+    display: flex;
+    flex-wrap: wrap;
+    &--full{
+      width: 100%;
+    }
+    &--half{
+      width: 100%;
+      @include breakpoint(desktop){
+        width: 50%;
+      }
+    }
+  }
+  &__section-heading{
+    color: $blue-text;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    position: relative;
+    margin-bottom: 4rem;
+    &:after{
+      position: absolute;
+      bottom: -1.5rem;
+      display: block;
+      content: '';
+      width: 75px;
+      height: 3px;
+      background: $blue-text;
+    }
+  }
+  &__button{
+    padding: 0.5rem 1.5rem;
+    border-radius: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      cursor: pointer;
+    }
+    &--white{
+      background: transparent;
+      border: solid 1px $orange;
+      color: $orange;
+      &:hover{
+        background: $orange;
+        color: $white;
+      }
+    }
+    &--white-white{
+      background: transparent;
+      border: solid 1px white;
+      color: $white;
+      &:hover{
+        border: solid 1px $white;
+        background: transparentize($white, 0.7);
+        color: $white;
+      }
+    }
+    &--orange{
+      background: $orange;
+      color: $white;
+      border: solid 1px transparent;
+      &:hover{
+        background: darken($orange, 10%);
+        color: $white;
+      }
+    }
+  }
+}

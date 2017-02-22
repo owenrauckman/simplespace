@@ -1,0 +1,47 @@
+.hero{
+  &__background{
+    z-index: -1;
+    position: absolute;
+    min-height: 600px;
+    width: 100%;
+    background: url('../assets/hero-background.jpg') no-repeat;
+    background-size:cover;
+    background-position: top 50%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+    @include breakpoint(tablet){
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+    }
+    &:before{
+      z-index: -1;
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: linear-gradient(to bottom right, $java, $turquoise);
+      opacity: 0.9;
+    }
+  }
+  &__heading{
+    clear:both;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: $white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  &__copy{
+    display: block;
+    max-width: 375px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    letter-spacing: 0.025rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    color: $white;
+    text-align: center;
+  }
+}

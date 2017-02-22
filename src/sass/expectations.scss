@@ -1,0 +1,13 @@
+.expectations{
+  padding: 2rem 0;
+  background: $gray-light;
+  &__copy{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: $blue-text;
+    max-width: 700px;
+    font-size: 1rem;
+    line-height: 2rem;
+    margin: 2rem 0;
+  }
+}

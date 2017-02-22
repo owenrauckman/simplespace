@@ -1,0 +1,64 @@
+.nav{
+  &__container{
+    display: block;
+    width: 100%;
+    margin: 0 0 6rem 0;
+  }
+  &__logo{
+    height: 41.391px;
+    width: 144.342px;
+    float: left;
+  }
+  &__hamburger{
+    margin-top: 10px;
+    height: 20px;
+    width: 20px;
+    float: right;
+    display: block;
+    path{
+      transition: all 0.2s ease-in;
+      stroke: white;
+    }
+    &:hover{
+      cursor: pointer;
+      path{
+        stroke: darken($java, 10%);
+      }
+    }
+    @include breakpoint(tablet){
+      display: none;
+    }
+  }
+  &__list{
+    padding:0;
+    float: right;
+    display: none;
+    font-size: 0.9rem;
+    @include breakpoint(tablet){
+      display: block;
+    }
+    &__item{
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      list-style: none;
+      color: $white;
+      letter-spacing: 0.025rem;
+      display: inline;
+      margin: 0 1rem;
+      &__link{
+        transition: all 0.2s ease-in;
+        padding: 0 0 0rem 0;
+        &:link, &:active, &:visited{
+          color: $white;
+          text-decoration: none;
+          border-top: solid 1px transparent;
+        }
+        &:hover{
+          cursor: pointer;
+          color: darken($java, 10%);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

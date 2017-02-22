@@ -1,0 +1,85 @@
+.services{
+  padding: 2rem 0;
+  background: linear-gradient(to bottom right, $java, $turquoise);
+  &__background{
+    position: absolute;
+    margin-top: -2.1rem;
+    min-height: 600px;
+    width: 100%;
+    background: white;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+  }
+  &__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+  }
+  &__box{
+    box-shadow: 0px 0px 20px transparentize($black, 0.75);
+    width: 100%;
+    margin: 1rem 0 2rem 0;
+    @include breakpoint(tablet){
+      width: calc(50% - 2rem); // 2rem for container margin
+    }
+    &__photo{
+      width: 100%;
+      height: 200px;
+      border-radius: 5px 5px 0px 0px;
+      background-size:cover;
+      background-position: 50% 50%;
+      &--closet{
+        background: url('../assets/closet.jpg');
+      }
+      &--photo{
+        background: url('../assets/photo.jpg');
+      }
+      &--kitchen{
+        background: url('../assets/kitchen.jpg');
+      }
+      &--office{
+        background: url('../assets/office.jpg');
+      }
+    }
+    &__info{
+      padding: 2rem;
+      background: $white;
+      border-radius: 0px 0px 5px 5px;
+      &__heading{
+        color: $blue-text;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        position: relative;
+        margin-bottom: 2.5rem;
+        &:after{
+          position: absolute;
+          bottom: -1rem;
+          display: block;
+          content: '';
+          width: 50px;
+          height: 2px;
+          background: $blue-text;
+        }
+      }
+      &__list{
+        padding: 0;
+        &__item{
+          list-style: none;
+          display: block;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 400;
+          color: $blue-text;
+          font-size: 0.9rem;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+  &__button-container{
+    justify-content: flex-end;
+    &__margin{
+      margin-right: 1rem;
+    }
+  }
+}

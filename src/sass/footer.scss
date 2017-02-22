@@ -1,0 +1,72 @@
+.footer{
+  padding: 2rem 0 2rem 0;
+  @include breakpoint(tablet){
+    padding: 5rem 0;
+  }
+  &__container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__box{
+    width: 100%;
+    @include breakpoint(tablet){
+      width: 50%;
+    }
+    &--logo{
+      margin-bottom: 2rem;
+      text-align: center;
+      @include breakpoint(tablet){
+        margin-bottom: 0;
+        text-align: left;
+      }
+    }
+  }
+  &__logo{
+    height: 57.4875px;
+    width: 200.475px;
+  }
+  &__info{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    @include breakpoint(tablet){
+      margin-top:0;
+    }
+    &__social{
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      @include breakpoint(tablet){
+        justify-content: flex-end;
+        margin-bottom: 2rem;
+      }
+      &__icon{
+        list-style: none;
+        margin: 0 1rem;
+        @include breakpoint(tablet){
+          &:last-child{
+            margin: 0 0 0 1rem;
+          }
+        }
+        svg{
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+    &__address{
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      font-style: italic;
+      color: $blue-dull;
+      text-align: center;
+      margin-top: 2rem;
+      @include breakpoint(tablet){
+        text-align: right;
+        margin-top: 0;
+      }
+    }
+  }
+}
