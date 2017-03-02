@@ -1,11 +1,7 @@
 <template>
   <div class="g__container">
     <div class="signup">
-      <!-- <rooms></rooms> -->
-      <!-- <questions></questions> -->
-      <!-- <slider></slider> -->
-      <calendar></calendar>
-      <div class="g__flex g__flex--full signup__button-container"><button class="g__button g__button--white signup__button-container__button" type="submit">{{formContinue}}</button></div>
+      <router-view></router-view>
       <div class="signup__progress-bar"></div>
     </div>
   </div>

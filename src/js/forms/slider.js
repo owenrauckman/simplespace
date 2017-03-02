@@ -3,6 +3,7 @@ export default {
   data() {
     return {
       heading: 'Are You Looking to Minimize or Organize?',
+      formContinue: 'Continue',
       messages: {
         minimal: {
           heading: 'Minimize',

@@ -3,6 +3,7 @@ export default {
   data() {
     return {
       heading: 'Choose a few areas to organize',
+      formContinue: 'Continue',
       options: [
         'Closet Space',
         'Garage / Storage',
@@ -16,7 +17,19 @@ export default {
         'Bathrooms',
         'Cleaning Supplies',
         'Medicine Cabinet'
-      ]
+      ],
+      checkedRooms: []
     };
   },
+  methods: {
+    addRooms(event){
+      this.$store.commit('setRooms', this.checkedRooms);
+      console.log(this.$store.state.rooms);
+    }
+  },
+  computed: {
+    count () {
+      return this.$store.state.rooms
+    }
+  }
 };

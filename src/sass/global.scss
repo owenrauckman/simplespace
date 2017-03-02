@@ -82,3 +82,10 @@ body{
     }
   }
 }
+
+/* ----- Reset for link underlines ----- */
+a{
+  &:link, &:hover, &:active, &:visited{
+    text-decoration: none;
+  }
+}

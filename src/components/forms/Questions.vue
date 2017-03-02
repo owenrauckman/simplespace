@@ -15,7 +15,9 @@
         </div>
       </form>
     </div>
+    <div class="g__flex g__flex--full signup__button-container"><router-link to="/slider" exact class="g__button g__button--white signup__button-container__button" type="submit">{{formContinue}}</router-link></div>
   </div>
+
 </template>
 
 <!-- Script and Styles -->

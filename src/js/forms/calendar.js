@@ -5,6 +5,7 @@ import 'moment';
 
 export default {
   name: 'calendar',
+  formContinue: 'Continue',
   data() {
     return {
       heading: 'Set up your first appointment. Choose a date and time',
@@ -14,7 +15,7 @@ export default {
           copy: 'I have a lot of stuff and I want to get rid of everything'
         }
       },
-      appointmentTimes: []
+      appointmentTimes: [],
     };
   },
   methods: {
@@ -116,6 +117,5 @@ export default {
 
     this.initCalendar();
 
-  },
-  props: ['msg'],
+  }
 };
