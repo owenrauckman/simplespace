@@ -5,17 +5,16 @@ import 'moment';
 
 export default {
   name: 'calendar',
-  formContinue: 'Continue',
   data() {
     return {
       heading: 'Set up your first appointment. Choose a date and time',
-      messages: {
-        minimal: {
-          heading: 'Minimize',
-          copy: 'I have a lot of stuff and I want to get rid of everything'
-        }
-      },
+      formContinue: 'Book Appointment',
+      instructions: 'Choose a date in the calendar to see available times. Days with a blue circle have available times. Appointments are in 2-hour blocks.',
+      progressBar: '80%',
       appointmentTimes: [],
+      bookingDate: '',
+      showError: false,
+      errorMessage: ''
     };
   },
   methods: {
@@ -89,8 +88,9 @@ export default {
                 // convert date string to time
                 let time = results[index].time;
                 // time = `${time.getHours()}:${time.getMinutes()}`
+                console.log(time);
                 console.log(this.formatTime(time));
-                appointmentTimes.push(this.formatTime(time));
+                appointmentTimes.push({iso: time, pretty: this.formatTime(time)});
               }.bind(this));
               this.appointmentTimes = appointmentTimes;
             }.bind(this));
@@ -111,11 +111,34 @@ export default {
       let year = date.getFullYear();
 
       this.renderDates(year, month);
+    },
+    // ---------- Select Time (called in template) ---------- //
+    selectTime(e){
+      let clickedDate = $(e.currentTarget)
+      this.bookingDate = clickedDate.data('time');
+      this.$store.commit('setBookingDate', this.bookingDate); // save to the vuex store
+
+      // Toggle classes on the times
+      $('.signup__schedule__times__list__item').removeClass('signup__schedule__times__list__item--active')
+      clickedDate.addClass('signup__schedule__times__list__item--active');
+    },
+    // ---------- Verify Time before submitting ---------- //
+    verifyBooking: function(){
+      if(this.bookingDate == ''){
+        this.errorMessage = 'Please select a date and time from the date selector.'
+        this.showError = true;
+      }
+      else{
+        this.showError = false;
+        this.$router.push('/confirmation');
+      }
     }
   },
   mounted(){
+    // $('.signup__schedule__times__list__item').click(this.selectTime());
 
     this.initCalendar();
+    this.$store.commit('setProgress', this.progressBar);
 
   }
 };

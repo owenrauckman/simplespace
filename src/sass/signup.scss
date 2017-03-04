@@ -1,3 +1,10 @@
+/* ----- Keyframes For Checkmark Animation ----- */
+@keyframes stroke{ 100% {stroke-dashoffset: 0;} }
+@keyframes scale{ 0%, 100% { transform: none; } 50% {transform: scale3d(1.1, 1.1, 1);} }
+@keyframes fill{ 100% {box-shadow: inset 0px 0px 0px 74px $java;} }
+$curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+
+/*----- Signup Component Styles ----- */
 .signup{
   background: $white;
   border-radius: 5px;
@@ -83,8 +90,8 @@
     font-family: 'Montserrat', sans-serif;
     &__box{
       margin: 0 0 4rem 0;
-      @include breakpoint(desktop){
-        margin: 2rem 0;
+      @include breakpoint(tablet){
+        margin: 0rem 0;
       }
     }
     &__heading{
@@ -94,24 +101,42 @@
       color: $blue-dull;
       max-width: 100%;
       text-align: center;
-      @include breakpoint(desktop){
+      @include breakpoint(tablet){
         text-align: left;
         max-width: 90%
       }
     }
     &__input{
-      color: $blue-text;
-      max-width: 100%;
+      color: $java;
+      width: 100%;
       font-family: 'Montserrat', sans-serif;
-      font-size: 4rem;
-      text-align: center;
+      font-size: 1rem;
+      text-align: left;
       border:none;
-      @include breakpoint(desktop){
-        max-width: 90%
+      margin: 1rem 0;
+      border-bottom: solid 1px transparentize($blue-dull, 0.5);
+      padding: 0 0 1rem 0;
+      line-height: 1rem;
+      transition: border-bottom 0.2s ease-in;
+      @include breakpoint(tablet){
+        width: 80%;
       }
       &:focus{
         outline:none;
+        border-bottom: solid 1px $java;
       }
+    }
+    // Chrome overrides for required fields
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+      -webkit-text-fill-color: $java !important;
+    }
+    &__error{
+      width: 100%;
+      text-align: right;
+      font-family: 'Roboto', sans-serif;
+      color: $blue-dull;
+      font-style: italic;
     }
   }
   &__scale{
@@ -222,24 +247,67 @@
       }
     }
   }
+  &__confirmation{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+    &__message{
+      text-align: center;
+      @include breakpoint(tablet){
+        max-width: 80%;
+      }
+    }
+    &__checkmark__circle{
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+      stroke: $java;
+      fill: none;
+      animation: stroke .6s $curve forwards;
+    }
+    &__checkmark{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: block;
+      stroke-width: 2;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+      stroke-linecap: round;
+      margin: 0 auto 1rem auto;
+      box-shadow: inset 0px 0px 0px $java;
+      animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+      &__check{
+        transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+        animation: stroke .3s $curve .8s forwards;
+      }
+    }
+
+  }
   &__button-container{
     position: absolute;
     bottom: 1rem;
-    width: 200px;
+    width: 100%;
     right: 0; left: 0;
     margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    &--first{
+      justify-content: flex-end;
+      width: auto;
+    }
     &__button{
       justify-content: center;
-      margin: 0 auto;
-      left: 0; right: 0;
-      @include breakpoint(desktop){
-        justify-content: flex-end;
-        margin-right: 1rem;
-      }
+      margin-right: 1rem;
     }
   }
   &__progress-bar{
-    width: 34%; // todo: use JS to make this width dynamic
+    transition: width 0.5s ease-in;
     height: 5px;
     border-radius: 0px 5px 5px 5px;
     background: linear-gradient(to left, $java, $turquoise);

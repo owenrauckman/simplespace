@@ -20,7 +20,7 @@ body{
     }
     &--half{
       width: 100%;
-      @include breakpoint(desktop){
+      @include breakpoint(tablet){
         width: 50%;
       }
     }
@@ -80,6 +80,23 @@ body{
         color: $white;
       }
     }
+  }
+  &__back-arrow{
+    height: 25px;
+    width: 25px;
+    margin-left: 1rem;
+    margin-right: calc(-25px - 1rem);
+    svg path{
+      transition: stroke 0.2s ease-in;
+      stroke: $blue-dull;
+    }
+    &:hover{
+      cursor: pointer;
+      svg path{
+        stroke: $orange;
+      }
+    }
+
   }
 }
 

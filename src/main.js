@@ -22,19 +22,37 @@ window.$ = $;
 const store = new Vuex.Store({
   // global vars
   state: {
-    rooms: []
+    rooms: [],
+    minimizeAmount: '',
+    progressBar: '20%',
+    personalInfo: {
+      fullName: '',
+      emailAddress: '',
+      phoneNumber: '',
+      address: '',
+      city: '',
+      state: '',
+      zip: ''
+    },
+    bookingDate: ''
   },
 
   // mutators
   mutations: {
     setRooms(state, rooms) {
       state.rooms = rooms;
-    }
-  },
-  // computed values
-  computed: {
-    count () {
-      return store.state.count
+    },
+    setSlider(state, minimizeAmount){
+      state.minimizeAmount = minimizeAmount;
+    },
+    setProgress(state, progressBar){
+      state.progressBar = progressBar;
+    },
+    setPersonalInfo(state, personalInfo){
+      state.personalInfo = personalInfo;
+    },
+    setBookingDate(state, bookingDate){
+      state.bookingDate = bookingDate;
     }
   }
 })
@@ -46,6 +64,7 @@ import Rooms from './components/forms/Rooms';
 import Questions from './components/forms/Questions';
 import Slider from './components/forms/Slider';
 import Calendar from './components/forms/Calendar';
+import Confirmation from './components/forms/Confirmation';
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -53,9 +72,10 @@ const router = new VueRouter({
   base: '/',
   routes: [
     {path: '/', component: Rooms},
-    {path: '/questions', component: Questions},
-    {path: '/slider', component: Slider},
-    {path: '/calendar', component: Calendar}
+    {path: '/info', component: Questions},
+    {path: '/organization-amount', component: Slider},
+    {path: '/book', component: Calendar},
+    {path: '/confirmation', component: Confirmation}
   ]
 })
 
