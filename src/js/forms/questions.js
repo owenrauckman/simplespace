@@ -58,6 +58,11 @@ export default {
       else{
         this.showError = false;
         this.$store.commit('setPersonalInfo', this.personalInfo);
+
+        $('html, body').animate({
+          scrollTop: $('#js__room-details').offset().top
+        }, 500);
+
         this.$router.push('/book');
       }
     }

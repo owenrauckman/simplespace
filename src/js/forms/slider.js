@@ -11,6 +11,13 @@ export default {
   methods: {
     updateSlider(){
       this.$store.commit('setSlider', this.minimizeAmount);
+    },
+    verifyForms: function(){
+      $('html, body').animate({
+        scrollTop: $('#js__scale').offset().top
+      }, 500);
+
+      this.$router.push('/info');
     }
   },
   computed: {

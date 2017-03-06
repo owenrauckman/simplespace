@@ -146,6 +146,10 @@ export default {
           url: 'http://getsimple.space:3001/api/book',
           crossDomain: true,
           success: function(){
+            $('html, body').animate({
+              scrollTop: $('#js__calendar').offset().top
+            }, 500);
+            
             this.$router.push('/confirmation');
           }.bind(this),
           error: function(){

@@ -34,6 +34,11 @@ export default {
       }
       else{
         this.showError = false;
+
+        $('html, body').animate({
+          scrollTop: $('#js__rooms').offset().top
+        }, 500);
+
         this.$router.push('/organization-amount');
       }
 
@@ -46,7 +51,7 @@ export default {
   },
   mounted(){
     this.$store.commit('setProgress', this.progressBar);
-    
+
     // Set Data from Vuex State if available
     this.checkedRooms = this.$store.state.rooms;
   }
