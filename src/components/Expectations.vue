@@ -1,5 +1,5 @@
 <template>
-  <section class="expectations">
+  <section class="expectations" id="Instructions">
     <div class="g__container">
       <h2 class="g__section-heading">{{heading}}</h2>
       <p v-for="expectation in expectations "class="expectations__copy">{{expectation.copy}}</p>

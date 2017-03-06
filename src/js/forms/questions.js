@@ -9,7 +9,8 @@ export default {
       addressHeading: 'What is your address?',
 
       // Placeholders
-      fullNamePlaceholder: 'Full Name*',
+      firstNamePlaceholder: 'First Name*',
+      lastNamePlaceholder: 'Last Name*',
       emailAddressPlaceholder: 'Email Address*',
       phoneNumberPlaceholder: 'Phone Number*',
       addressPlaceholder: 'Address*',
@@ -19,7 +20,8 @@ export default {
 
       // Data for Placeholders
       personalInfo: {
-        fullName: '',
+        firstName: '',
+        lastName: '',
         emailAddress: '',
         phoneNumber: '',
         address: '',
@@ -35,18 +37,17 @@ export default {
   },
   mounted(){
     this.$store.commit('setProgress', this.progressBar);
-    this.$store.commit('setPersonalInfo', this.personalInfo);
 
     // Set Data from Vuex State if available
-    this.personalInfo = this.$store.state.rooms;
+    this.personalInfo = this.$store.state.personalInfo;
 
   },
   methods: {
     dashifyNumber: function(){
-      this.phoneNumber = this.phoneNumber.replace(/(\d{3})(\d{3})\-?/g,'$1-$2');
+      this.personalInfo.phoneNumber = this.personalInfo.phoneNumber.replace(/(\d{3})(\d{3})\-?/g,'$1-$2');
     },
     verifyForms: function(){
-      if(this.personalInfo.fullName == undefined || this.personalInfo.emailAddress == undefined || this.personalInfo.phoneNumber == undefined || this.personalInfo.address == undefined || this.personalInfo.city == undefined || this.personalInfo.state == undefined || this.personalInfo.zip == undefined){
+      if(this.personalInfo.firstName == '' || this.personalInfo.lastName == '' || this.personalInfo.emailAddress == '' || this.personalInfo.phoneNumber == '' || this.personalInfo.address == '' || this.personalInfo.city == '' || this.personalInfo.state == '' || this.personalInfo.zip == ''){
         this.errorMessage = 'Please fill out all of the fields above.'
         this.showError = true;
       }
@@ -56,6 +57,7 @@ export default {
       }
       else{
         this.showError = false;
+        this.$store.commit('setPersonalInfo', this.personalInfo);
         this.$router.push('/book');
       }
     }

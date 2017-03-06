@@ -66,14 +66,12 @@ export default {
       var initDates;
       this.getAvailableDates(year, month).then(function(response){
         initDates = response;
-        // console.log(initDates);
       }).then(function(){
         $(".datepicker").datepicker({
           dateFormat: "yy-mm-dd",
           beforeShowDay: function(date) {
             var formattedDate = this.getFormattedDate(date);
             if ($.inArray(formattedDate, initDates) > -1) {
-              // console.log(formattedDate);
                 return [true, 'calendar__day--available', null];
             } else {
                 return [false, 'calendar__day--available', null]; //no special class here
@@ -88,8 +86,6 @@ export default {
                 // convert date string to time
                 let time = results[index].time;
                 // time = `${time.getHours()}:${time.getMinutes()}`
-                console.log(time);
-                console.log(this.formatTime(time));
                 appointmentTimes.push({iso: time, pretty: this.formatTime(time)});
               }.bind(this));
               this.appointmentTimes = appointmentTimes;
@@ -130,15 +126,39 @@ export default {
       }
       else{
         this.showError = false;
-        this.$router.push('/confirmation');
+        var acuityData = {
+          datetime: this.bookingDate,
+          firstName: this.$store.state.personalInfo.firstName,
+          lastName: this.$store.state.personalInfo.lastName,
+          email: this.$store.state.personalInfo.emailAddress,
+          phoneNumber: this.$store.state.personalInfo.phoneNumber,
+          address: this.$store.state.personalInfo.address,
+          city: this.$store.state.personalInfo.city,
+          state: this.$store.state.personalInfo.state,
+          zip: this.$store.state.personalInfo.zip,
+          rooms: this.$store.state.rooms.join(', '),
+          minimizeAmount: this.$store.state.minimizeAmount,
+          prettyDate: this.formatTime(this.bookingDate)
+        };
+        $.ajax({
+          method: 'POST',
+          data: acuityData,
+          url: 'http://localhost:3000/api/book',
+          crossDomain: true,
+          success: function(){
+            this.$router.push('/confirmation');
+          }.bind(this),
+          error: function(){
+            this.showError = true;
+            this.errorMessage = 'There was an error processing your request. Please try again.';
+          }.bind(this)
+        })
+
       }
     }
   },
   mounted(){
-    // $('.signup__schedule__times__list__item').click(this.selectTime());
-
     this.initCalendar();
     this.$store.commit('setProgress', this.progressBar);
-
   }
 };

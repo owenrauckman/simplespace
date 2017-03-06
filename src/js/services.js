@@ -29,4 +29,11 @@ export default {
       ]
     };
   },
+  methods: {
+    scrollToTop(){
+      $('html, body').animate({
+        scrollTop: $('#Signup').offset().top
+      }, 500);
+    }
+  }
 };

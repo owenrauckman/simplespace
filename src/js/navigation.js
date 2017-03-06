@@ -5,9 +5,16 @@ export default {
       nav: [
         {title: 'Services', link: '#'},
         {title: 'Pricing', link: '#'},
-        {title: 'Expectatons', link: '#'},
-        {title: 'Blog', link: '#'}
+        {title: 'Instructions', link: '#'},
+        {title: 'Blog', link: 'https://medium.com/@getsimplespace'}
       ]
     };
   },
+  methods: {
+    scrollToSection(menuItem){
+      $('html, body').animate({
+        scrollTop: $(`#${menuItem}`).offset().top
+      }, 500);
+    }
+  }
 };

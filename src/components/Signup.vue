@@ -1,5 +1,5 @@
 <template>
-  <div class="g__container">
+  <div class="g__container" id="Signup">
     <div class="signup">
       <router-view></router-view>
       <div class="signup__progress-bar" v-bind:style="{ width: $store.state.progressBar}"></div>

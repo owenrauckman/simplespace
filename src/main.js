@@ -1,5 +1,9 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
+// import es6 promise polyfill for vuex
+require('es6-promise').polyfill()
+
 import Vue from 'vue';
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
@@ -26,7 +30,8 @@ const store = new Vuex.Store({
     minimizeAmount: '',
     progressBar: '20%',
     personalInfo: {
-      fullName: '',
+      firstName: '',
+      lastName: '',
       emailAddress: '',
       phoneNumber: '',
       address: '',

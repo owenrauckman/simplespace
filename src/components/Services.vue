@@ -1,5 +1,5 @@
 <template>
-  <section class="services">
+  <section class="services" id="Services">
     <div class="services__background"></div>
     <div class="g__container">
       <h2 class="g__section-heading">{{heading}}</h2>
@@ -16,7 +16,7 @@
 
         <div class="g__flex g__flex--full services__button-container">
           <button class="g__button g__button--white-white services__button-container__margin" type="submit">{{viewMore}}</button>
-          <button class="g__button g__button--orange" type="submit">{{getStarted}}</button>
+          <button class="g__button g__button--orange" type="submit" @click="scrollToTop">{{getStarted}}</button>
         </div>
       </div>
     </div>

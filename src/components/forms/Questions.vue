@@ -6,7 +6,8 @@
         <div class="g__flex">
           <div class="signup__details__box g__flex--half">
             <h3 class="signup__details__heading">{{personalInfoHeading}}</h3>
-            <input class="signup__details__input" :placeholder="fullNamePlaceholder" v-model="personalInfo.fullName"/>
+            <input class="signup__details__input" :placeholder="firstNamePlaceholder" v-model="personalInfo.firstName"/>
+            <input class="signup__details__input" :placeholder="lastNamePlaceholder" v-model="personalInfo.lastName"/>
             <input class="signup__details__input" :placeholder="emailAddressPlaceholder" v-model="personalInfo.emailAddress"/>
             <input class="signup__details__input" :placeholder="phoneNumberPlaceholder" type="tel" v-model="personalInfo.phoneNumber" @keyup="dashifyNumber"/>
           </div>

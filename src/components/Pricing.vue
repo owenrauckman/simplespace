@@ -1,5 +1,5 @@
 <template>
-  <section class="pricing">
+  <section class="pricing" id="Pricing">
     <div class="g__container">
       <h2 class="g__section-heading">{{heading}}</h2>
       <p class="pricing__copy">{{copy}}</p>
