@@ -5,8 +5,17 @@
       <ul class="nav__list">
         <li v-for="item in nav" @click="scrollToSection(item.title)" class="nav__list__item"><a class="nav__list__item__link" :href="item.link">{{item.title}}</a></li>
       </ul>
-      <svg class="nav__hamburger" viewBox="0 0 167 167" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5"><path d="M558 84h60" fill="none" stroke="#fff" stroke-width="4" transform="matrix(2.5 0 0 3.25 -1386.67 -254.67)"/><path d="M558 84h60" fill="none" stroke="#fff" stroke-width="4" transform="matrix(2.5 0 0 3.25 -1386.67 -189.67)"/><path d="M558 84h60" fill="none" stroke="#fff" stroke-width="4" transform="matrix(2.5 0 0 3.25 -1386.67 -124.67)"/></svg>
+      <svg @click="showMenu" class="nav__hamburger" viewBox="0 0 167 167" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5"><path d="M558 84h60" fill="none" stroke="#fff" stroke-width="4" transform="matrix(2.5 0 0 3.25 -1386.67 -254.67)"/><path d="M558 84h60" fill="none" stroke="#fff" stroke-width="4" transform="matrix(2.5 0 0 3.25 -1386.67 -189.67)"/><path d="M558 84h60" fill="none" stroke="#fff" stroke-width="4" transform="matrix(2.5 0 0 3.25 -1386.67 -124.67)"/></svg>
     </nav>
+
+    <div class="nav__mobile">
+      <nav class="nav__mobile__nav">
+        <ul class="nav__mobile__list">
+          <li v-for="item in nav" @click="scrollToSection(item.title)" class="nav__mobile__list__item"><a class="nav__list__item__link" :href="item.link">{{item.title}}</a></li>
+        </ul>
+        <button class="g__button g__button--white-white nav__mobile__close" type="submit" @click="closeMenu">Close</button>
+      </nav>
+    </div>
   </div>
 </template>
 

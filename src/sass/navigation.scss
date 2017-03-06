@@ -61,4 +61,36 @@
       }
     }
   }
+  &__mobile{
+    display: none;
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%;
+    z-index: +1;
+    height: 100vh;
+    background: linear-gradient(to bottom right, $java, $turquoise);
+    &__nav{
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &__list{
+      padding-left: 0;
+      &__item{
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        list-style: none;
+        color: $white;
+        letter-spacing: 0.025rem;
+        margin: 1rem 0;
+        text-align: center;
+      }
+    }
+    &__close{
+      margin: 2rem auto;
+      text-align: center;
+      display: block
+    }
+  }
 }

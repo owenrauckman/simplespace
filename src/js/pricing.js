@@ -14,13 +14,6 @@ export default {
           color: 'dark'
         },
         {
-          cost: '$70',
-          costMeasure: '/hr',
-          appointment: 'Large Appointment',
-          organizers: '3-4 Organizers',
-          color: 'dark'
-        },
-        {
           cost: '$25',
           costMeasure: '/trip',
           appointment: 'Recycle/Donate <br>old items',

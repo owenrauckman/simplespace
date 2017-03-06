@@ -23,7 +23,7 @@
     box-shadow: 0px 0px 20px transparentize($black, 0.75);
     margin: 1rem 0;
     @include breakpoint(tablet){
-      width: calc((100% / 3) - 10rem);
+      width: calc((100% / 2) - 10rem);
       margin: 0;
     }
     &--dark{

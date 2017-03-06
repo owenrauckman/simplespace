@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "Owen Rauckman",
+  "license": "ISC",
+  "dependencies": {
+    "acuityscheduling": "^0.1.7",
+    "body-parser": "^1.16.0",
+    "cors": "^2.8.1",
+    "express": "^4.14.1",
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^16.1.0",
+    "mailchimp-api-v3": "^1.7.0",
+    "nodemailer": "^3.1.4",
+    "sendmail": "^1.1.1"
+  }
+}

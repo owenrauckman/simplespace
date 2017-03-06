@@ -47,12 +47,12 @@ export default {
         }
 
         // Promises (2 promises because we don't want to show dates more than 2 months in advance)
-        $.getJSON(`http://localhost:3000/api/dates?month=${nextYear}-${nextMonth}`).then(function(results){
+        $.getJSON(`http://getsimple.space:3001/api/dates?month=${nextYear}-${nextMonth}`).then(function(results){
           $.each(results, function(index, value){
             availableDates.push(results[index].date);
           });
         }).then(function(){
-          $.getJSON(`http://localhost:3000/api/dates?month=${year}-${month}`).then(function(results){
+          $.getJSON(`http://getsimple.space:3001/api/dates?month=${year}-${month}`).then(function(results){
             $.each(results, function(index, value){
               availableDates.push(results[index].date);
             });
@@ -80,7 +80,7 @@ export default {
           onSelect: function(selectedDate){
             // Get possible times based on day
             let appointmentTimes = [];
-            $.getJSON(`http://localhost:3000/api/times?date=${selectedDate}`)
+            $.getJSON(`http://getsimple.space:3001/api/times?date=${selectedDate}`)
             .then(function(results){
               $.each(results, function(index, value){
                 // convert date string to time
@@ -143,7 +143,7 @@ export default {
         $.ajax({
           method: 'POST',
           data: acuityData,
-          url: 'http://localhost:3000/api/book',
+          url: 'http://getsimple.space:3001/api/book',
           crossDomain: true,
           success: function(){
             this.$router.push('/confirmation');
